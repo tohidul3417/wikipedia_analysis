@@ -1,0 +1,56 @@
+/* Main styles for the Wikipedia Category Word Analysis app */
+
+/* No Results Container styling */
+#noResultsContainer {
+    display: none;
+    text-align: center;
+    margin: 3rem auto;
+    max-width: 500px;
+}
+
+#noResultsContainer svg {
+    margin: 0 auto 1rem;
+    display: block;
+}
+
+#noResultsContainer h3 {
+    margin-bottom: 1rem;
+    color: #343a40;
+}
+
+#noResultsContainer p {
+    margin-bottom: 1.5rem;
+    color: #6c757d;
+}
+
+/* Word card styling */
+.word-card {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.word-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Loading indicator */
+.loading {
+    display: none;
+    margin: 2rem auto;
+}
+
+/* Form hint styling */
+.form-hint {
+    color: #6c757d;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+}
+
+/* Word cloud container */
+#wordCloud {
+    margin-top: 2rem;
+    height: 400px;
+    width: 100%;
+}

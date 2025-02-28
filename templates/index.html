@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wikipedia Category Word Analysis</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', path='styles.css') }}">
+</head>
+<body class="bg-light">
+    <div class="container py-5">
+        <h1 class="text-center mb-5 animate__animated animate__fadeIn">Wikipedia Category Word Analysis</h1>
+        
+        <div class="row justify-content-center mb-4">
+            <div class="col-md-8">
+                <form id="analysisForm" class="mb-2">
+                    <div class="input-group">
+                        <input type="text" 
+                               id="categoryInput" 
+                               class="form-control" 
+                               placeholder="Enter Wikipedia category...">
+                        <button type="submit" 
+                                class="btn btn-primary">
+                            Analyze
+                        </button>
+                    </div>
+                </form>
+                <p class="form-hint">Example: Health, Nature</p>
+            </div>
+        </div>
+
+        <div class="loading text-center my-4">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <p class="mt-2">Analyzing category... This may take a few moments.</p>
+        </div>
+
+        <div id="noResultsContainer" class="text-center animate__animated animate__fadeIn">
+            <svg width="100" height="100" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15.5 14.5L19.5 18.5M10.5 18.5C6.08172 18.5 2.5 14.9183 2.5 10.5C2.5 6.08172 6.08172 2.5 10.5 2.5C14.9183 2.5 18.5 6.08172 18.5 10.5C18.5 14.9183 14.9183 18.5 10.5 18.5Z" stroke="#6c757d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M10.5 7.5V13.5" stroke="#6c757d" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="10.5" cy="5.5" r="1" fill="#6c757d"/>
+            </svg>
+            <h3>No Results Found</h3>
+            <p>We couldn't find any results for the category you searched. Please check the spelling or try a different category.</p>
+            <button class="btn btn-outline-primary" onclick="document.getElementById('categoryInput').focus()">Try Another Search</button>
+        </div>
+
+        <div id="results" class="animate__animated animate__fadeIn">
+            <div class="row" id="wordCards"></div>
+            <div id="wordCloud"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3-cloud@1.2.5/build/d3.layout.cloud.min.js"></script>
+    <script src="{{ url_for('static', path='script.js') }}"></script>
+</body>
+</html>
