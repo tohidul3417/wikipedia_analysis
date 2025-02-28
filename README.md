@@ -30,8 +30,8 @@ A web application that analyzes word frequencies from Wikipedia categories and v
 
 1. Clone the repository
    ```bash
-   git clone https://github.com/yourusername/wikipedia-analysis.git
-   cd wikipedia-analysis
+   git clone https://github.com/tohidul3417/wikipedia_analysis.git
+   cd wikipedia_analysis
    ```
 
 2. Install dependencies
@@ -39,12 +39,28 @@ A web application that analyzes word frequencies from Wikipedia categories and v
    pip install -r requirements.txt
    ```
 
-3. Run the application
-   ```bash
-   python app.py
+### Running the Application
+
+There are two ways to run the application:
+
+#### Option 1: Using Python directly
+```bash
+python app.py
+```
+
+#### Option 2: Using Uvicorn directly (recommended)
+```bash
+uvicorn app:app --reload
+```
+
+The `--reload` flag enables auto-reloading when code changes are detected, which is useful during development.
+
+3. Once the server is running, you should see output similar to:
+   ```
+   INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
    ```
 
-4. Open your browser and navigate to `http://localhost:8000`
+4. Open your browser and navigate to `http://127.0.0.1:8000`
 
 ## Usage
 
